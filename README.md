@@ -3,4 +3,4 @@ this is an early version and design. In the future, it will be so many change be
 
 # Buggs Known
 - Just for desktop version, mobile version still in development process
-- Scalling for magrin and padding
+- Scalling for margin and padding
