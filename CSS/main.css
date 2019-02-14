@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+body {
+    /*margin style*/
+    margin: 0;
+    padding: 0;
+
+    /*font style*/
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+
+    /*background style*/
+    background: url(/img/web_folio_background.svg);
+    /*responsive background*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #070722;
+}
+/* For mobile devices */
+@media only screen and (max-width: 560px) {
+    body {
+      /* The file size of this background image is 93% smaller
+       * to improve page load speed on mobile internet connections */
+      background-image: url(/img/web_folio_background_mobile.svg);
+    }
+}
+
+/*.container{
+    /*page dimension
+    height: 2160px;
+    width: auto;
+}*/
+#gt, #fb, #ig, #ln {
+    width: 1.3vw;
+    height: 1.3vw;
+    margin : 0 10px 0 0;
+    opacity: 0.5;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(7, 7, 34, 0.1);
+}
+
+ul {
+    float: left;
+    list-style: none;
+    padding: 40px;
+    margin: 0;
+}
+
+li {
+    float: left;
+}
+
+.navbarMenu a {
+    font-size: 1.5vw;
+    color: #aaaaaa;
+    text-decoration: none;
+    margin: 0 40px 0 0;
+    display: block;
+    opacity: 1.0;
+}
+
+.socials {
+    float: right;
+    margin: 0;
+    padding: 40px;
+}
+
+.socials a {
+    margin: 0 0 0 10px;
+}
+
+/*hover effect : stoke*/
+.navbarMenu a,
+.navbarMenu a:after,
+.navbarMenu a:before {
+    transition: all .5s;
+}
+.navbarMenu a:hover {
+    color: #ffffff;
+}
+
+.navbarMenu a {
+    position: relative;
+}
+
+/*stroke underline effect*/
+.navbarMenu a:after{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 0 -8px 0;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: rgb(255, 255, 255);
+    height: 2px;
+}
+
+.navbarMenu a:hover:after {
+    width: 100%;
+}
+
+/*hover effect for social media icons*/
+#gt, #fb, #ig, #ln {
+    transition: all 0.5s;
+}
+
+#gt:hover, #ig:hover, #fb:hover, #ln:hover {
+    opacity: 1.0;
+}
+
+/*text style*/
+.contents {
+    margin : 0;
+    padding : 0;
+    position: relative;
+    top: 7.5vw;
+    left: 12vw;
+    width: 600px;
+    color: #ffffff;;
+}
+
+h1 {
+    font-size: 5vw;
+}
+
+h2 {
+    font-size: 2vw;
+    font-style: italic;
+}
+
+p {
+    font-size: 1.2vw;
+}
+
+/*button style, :link tag mean its an univisited link*/
+
+.btnRipple {
+    background-position: center;
+    transition: background 0.8s;
+  }
+
+.btnRipple:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+  }
+.btnRipple:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+  }
+  
+  /* Button style */
+  button {
+    border: none;
+    border-radius: 100px;
+    padding: 1vw 1vw;
+    font-size: 1vw;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: white;
+    background-color: #2196f3;
+    box-shadow: 0 0 4px #999;
+    outline: none;
+    position: relative;
+    top: 9vw;
+    left: 12vw;
+  }
