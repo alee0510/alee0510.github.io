@@ -173,6 +173,13 @@ button {
       /* The file size of this background image is 93% smaller
        * to improve page load speed on mobile internet connections */
       background-image: url("https://alee0510.github.io/img/web_folio_mobile_background.svg");
+      
+      /*responsive background*/
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      background-color: #070722;
     }
     nav {
         display: none;
