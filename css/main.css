@@ -172,9 +172,16 @@ button {
     body {
         /* The file size of this background image is 93% smaller
         * to improve page load speed on mobile internet connections */
-       background-image: url("https://alee0510.github.io/img/web_mobile_background.jpg") no-repeat center center fixed;
+       background-image: url("https://alee0510.github.io/img/web_mobile_background.jpg");
        
        /*responsive background*/
+       background-position: center center !important;
+       background-repeat: no-repeat !important;
+       background-attachment: fixed !important;
+       background-size: 100% !important;
+       height: 100vh;
+       width: 100%;
+       background-color: #070722;
     }
     nav {
         display: none;
