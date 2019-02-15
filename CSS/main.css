@@ -10,7 +10,7 @@ body {
     color: #ffffff;
 
     /*background style*/
-    background: url(/img/web_folio_background.svg);
+    background: url("https://github.com/alee0510/alimuksin.github.io/blob/master/img/web_folio_background.svg");
     /*responsive background*/
     background-position: center center;
     background-repeat: no-repeat;
