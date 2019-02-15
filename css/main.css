@@ -175,13 +175,6 @@ button {
        background-image: url("https://alee0510.github.io/img/web_mobile_background.jpg") no-repeat center center fixed;
        
        /*responsive background*/
-       -webkit-background-size: cover;
-       -moz-background-size: cover;
-       -o-background-size: cover;
-       background-size: cover;
-       height: 100%;
-       overflow: hidden;
-       background-color: #070722;
     }
     nav {
         display: none;
