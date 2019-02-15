@@ -155,7 +155,7 @@ p {
 button {
     border: none;
     border-radius: 100px;
-    padding: 1.5vw 2vw;
+    padding: 14px 2.2vw;
     margin: 20px;
     font-size: calc(10px + (14 - 10) * ((100vw - 360px) / (1600 - 300)));
     text-transform: uppercase;
@@ -170,35 +170,37 @@ button {
 /* For mobile devices */
 @media only screen and (max-width: 768px) {
     body {
-      /* The file size of this background image is 93% smaller
-       * to improve page load speed on mobile internet connections */
-      background-image: url("https://alee0510.github.io/img/web_folio_mobile_background.svg");
-      
-      /*responsive background*/
-      background-position: center center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-size: cover;
-      background-color: #070722;
+        /* The file size of this background image is 93% smaller
+        * to improve page load speed on mobile internet connections */
+       background-image: url("https://alee0510.github.io/img/web_mobile_background.jpg");
+       
+       /*responsive background*/
+       background-position: center center !important;
+       background-repeat: no-repeat !important;
+       background-attachment: fixed !important;
+       background-size: cover !important;
+       background-color: #070722;
+
     }
     nav {
         display: none;
     }
 
     h1, h2, p {
-        margin: auto auto 3.5vw auto;
+        margin: auto auto 2.3vw auto;
         padding: 0;
     }
     .contents{
         display: block;
         width: 80%;
         text-align: center;
-        margin: 28% auto auto auto;
+        margin: 35% auto auto auto;
     }
 
     button {
         display: flex;
         align-items: center;
+        padding: 12px 2.2vw;
         margin: 30px auto auto auto;
     }
 
