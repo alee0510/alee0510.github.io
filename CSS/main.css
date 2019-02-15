@@ -10,7 +10,7 @@ body {
     color: #ffffff;
 
     /*background style*/
-    background: url("img/web_folio_background.svg");
+    background: url("https://alee0510.github.io/alimuksin.github.io/img/web_folio_background.svg");
     /*responsive background*/
     background-position: center center;
     background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
     body {
       /* The file size of this background image is 93% smaller
        * to improve page load speed on mobile internet connections */
-      background-image: url(/img/web_folio_background_mobile.svg);
+      background-image: url("https://alee0510.github.io/alimuksin.github.io/img/web_folio_background_mobile.svg");
     }
 }
 
