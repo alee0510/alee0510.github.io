@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("https://fonts.googleapis.com/css?family=Kalam|Poppins");
 
 body {
     /*margin style*/
@@ -6,11 +6,11 @@ body {
     padding: 0;
 
     /*font style*/
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #ffffff;
 
     /*background style*/
-    background: url("https://alee0510.github.io/img/web_folio_background.svg");
+    background: url("/img/web_folio_background.svg");
     /*responsive background*/
     background-position: center center;
     background-repeat: no-repeat;
@@ -18,20 +18,11 @@ body {
     background-size: cover;
     background-color: #070722;
 }
-/* For mobile devices */
-@media only screen and (max-width: 560px) {
-    body {
-      /* The file size of this background image is 93% smaller
-       * to improve page load speed on mobile internet connections */
-      background-image: url("https://alee0510.github.io/img/web_folio_background_mobile.svg");
-    }
+
+#menu {
+    display: none;
 }
 
-/*.container{
-    /*page dimension
-    height: 2160px;
-    width: auto;
-}*/
 #gt, #fb, #ig, #ln {
     width: 1.3vw;
     height: 1.3vw;
@@ -60,7 +51,7 @@ li {
 }
 
 .navbarMenu a {
-    font-size: 1.5vw;
+    font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1600 - 300)));
     color: #aaaaaa;
     text-decoration: none;
     margin: 0 40px 0 0;
@@ -119,32 +110,33 @@ li {
     opacity: 1.0;
 }
 
-/*text style*/
+/*contents style*/
+h1, h2, p {
+    margin: auto auto 1.5vw auto;
+    padding: 0;
+}
 .contents {
-    margin : 0;
-    padding : 0;
-    position: relative;
-    top: 7.5vw;
-    left: 12vw;
-    width: 600px;
-    color: #ffffff;;
+    display: block;
+    margin: 140px auto 2vw 140px;
+    width: 45%;
 }
 
 h1 {
-    font-size: 5vw;
+    font-size: calc(40px + (80 - 40) * ((100vw - 360px) / (1600 - 300)));
 }
 
 h2 {
-    font-size: 2vw;
-    font-style: italic;
+    font-family: 'Kalam', cursive;
+    font-style: normal;
+    font-weight: 450;
+    font-size: calc(20px + (40 - 20) * ((100vw - 360px) / (1600 - 300)));
 }
 
 p {
-    font-size: 1.2vw;
+    font-size: calc(14px + (18 - 14) * ((100vw - 360px) / (1600 - 300)));
 }
 
 /*button style, :link tag mean its an univisited link*/
-
 .btnRipple {
     background-position: center;
     transition: background 0.8s;
@@ -157,21 +149,57 @@ p {
     background-color: #6eb9f7;
     background-size: 100%;
     transition: background 0s;
-  }
-  
-  /* Button style */
-  button {
+}
+
+/* Button style */
+button {
     border: none;
     border-radius: 100px;
-    padding: 1vw 1vw;
-    font-size: 1vw;
+    padding: 1.5vw 2vw;
+    margin: 20px;
+    font-size: calc(10px + (14 - 10) * ((100vw - 360px) / (1600 - 300)));
     text-transform: uppercase;
     cursor: pointer;
     color: white;
     background-color: #2196f3;
     box-shadow: 0 0 4px #999;
     outline: none;
-    position: relative;
-    top: 9vw;
-    left: 12vw;
-  }
+    margin: auto auto auto 140px;
+}
+
+/* For mobile devices */
+@media only screen and (max-width: 768px) {
+    body {
+      /* The file size of this background image is 93% smaller
+       * to improve page load speed on mobile internet connections */
+      background-image: url("/img/web_folio_mobile_background.svg");
+    }
+    nav {
+        display: none;
+    }
+
+    h1, h2, p {
+        margin: auto auto 3.5vw auto;
+        padding: 0;
+    }
+    .contents{
+        display: block;
+        width: 80%;
+        text-align: center;
+        margin: 28% auto auto auto;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        margin: 30px auto auto auto;
+    }
+
+    #menu {
+        display: block;
+        width: 35px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+}
