@@ -1,0 +1,414 @@
+/* import fonts */
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900');
+
+/* variables */
+$colors :(
+    fontColor:#321C88, linkColor:#007FFF, linkColor2:#00B9FF, buttonColor:#FF2F6C, 
+    baseColor:#F7F7F7, footerColor:#2E1B84, base:#FFFFFF
+);
+
+/* function */
+@mixin backgroundCover ($attachment) {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: $attachment;
+    background-size: 100%;
+}
+
+@mixin animationSpeed ($speed) {
+    -webkit-transition: all $speed cubic-bezier(0.000, 0.995, 0.990, 1.000);
+    -moz-transition: all $speed cubic-bezier(0.000, 0.995, 0.990, 1.000);
+     -ms-transition: all $speed cubic-bezier(0.000, 0.995, 0.990, 1.000);
+      -o-transition: all $speed cubic-bezier(0.000, 0.995, 0.990, 1.000);
+         transition: all $speed cubic-bezier(0.000, 0.995, 0.990, 1.000);
+}
+
+@mixin buttonShadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+@function colorPicker($colorName) {
+    @return map-get($colors, $colorName )
+};
+
+/* fluid typography*/
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}
+
+@mixin fluidType($min-vw, $max-vw, $min-font-size, $max-font-size) {
+  $u1: unit($min-vw);
+  $u2: unit($max-vw);
+  $u3: unit($min-font-size);
+  $u4: unit($max-font-size);
+
+  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+    & {
+      font-size: $min-font-size;
+      @media screen and (min-width: $min-vw) {
+        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+      }
+      @media screen and (min-width: $max-vw) {
+        font-size: $max-font-size;
+      }
+    }
+  }
+}
+
+/* responsive screen size*/
+$desktop: 768px;
+@mixin desktop {
+    @media (min-width: #{$desktop}){
+        @content;
+    }
+}
+
+/* style */
+*{ margin: 0px; padding: 0px; };
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* remove padding in custom container*/
+    .no-gutter > [class*='col-'] {
+        padding-right:0; padding-left:0;
+    }
+
+    /* backgroudn style */
+    background-color: colorPicker(base);
+
+    #intro{
+        .contents {
+            background-image: url("/img/mobile-image.svg");
+            @include backgroundCover(scroll);
+            @include desktop {
+                background-image: unset;
+            }
+            .navbar {
+                height: 13vh; width:auto; padding: 0px !important;
+                background: rgba(colorPicker(buttonColor), 0.0);
+                @include desktop {
+                    .screen, .sub {
+                        display: none;
+                    }
+                }
+                .screen {
+                    .circle {
+                        border-radius: 50%;
+                        height: 0px; width: 0px;
+                        position: absolute; top: 31.5px; right: 31.5px;
+                        background-color: colorPicker(base); opacity: 1.0;
+                        @include animationSpeed(200ms);
+                        &.expand{
+                            width: 1800px; height: 1800px;
+                            top: -560px; right: -565px;
+                            @include animationSpeed(200ms);
+                        }
+                    }
+                    .burger {
+                        height: 40px; width: 35px;
+                        position: absolute; top: 25px; right: 20px; cursor: pointer;
+                        .top, .middle, .bottom {
+                            background-color: colorPicker(base);
+                            border-radius: 5px;
+                            height: 4px; width: 100%;
+                            position: absolute; top: 0px; left: 0px;
+                            @include animationSpeed(300ms);
+                            &:nth-of-type(2){top: 11px;}
+                            &:nth-of-type(3){top: 22px;}
+                        }
+                        &.cross {
+                            .top {
+                                transform: translateY(11px) translateX(0) rotate(45deg);
+                                background: colorPicker(fontColor);
+                            }
+                            .middle {
+                                opacity: 0;
+                                background: colorPicker(fontColor);
+                                @include animationSpeed(50ms)
+                            }
+                            .bottom {
+                                transform: translateY(-11px) translateX(0) rotate(-45deg);
+                                background: colorPicker(fontColor);
+                            }
+                        }
+                    }
+                }
+                .menu {
+                    .main {
+                        @include desktop {
+                            float: left;
+                        }
+                        li {
+                            list-style: none;
+                            position: absolute; top: 31.5px; left: 30px;
+                            opacity: 0.0; width: 100%;
+                            text-align: left;
+                            font-family: Georgia, 'Times New Roman', Times, serif; font-size: 0.0px;
+                            @include desktop {
+                                display: inline-block;
+                                position: relative; top: 15px; left: 20px; 
+                                opacity: 1.0; width: unset;
+                                font-family: 'Source Sans Pro', sans-serif; font-size: 20px;
+                                #home {
+                                    font-weight: 900;
+                                }
+                                #projects, #about {
+                                    font-weight: 400; opacity: 0.6;
+                                    &:hover {
+                                        opacity: 1.0;
+                                        transition: .3s ease;
+                                    }
+                                }
+                            }
+                            a {
+                                text-decoration: none; text-transform: uppercase; font-weight: bold;
+                                color: colorPicker(fontColor);
+                                @include desktop {
+                                    text-transform: initial; margin-left: 10px;
+                                }
+                            }
+                            .fa {
+                                margin-left: 15px;
+                                @include desktop {margin-left: 8px; font-size: 15px;}
+                            }
+                            &.animate {
+                                font-size: 35px; opacity: 1.0; @include animationSpeed(200ms);
+                                &:nth-of-type(1){
+                                    top: 80px; transition-delay: 0.0s;
+                                }
+                                &:nth-of-type(2){
+                                    top: 180px; transition-delay: 0.02s;
+                                }
+                                &:nth-of-type(3){
+                                    top: 450px; transition-delay: 0.09s;
+                                }
+                            } 
+                        }
+                    }
+                    .sub {
+                        li {
+                            list-style: none;
+                            position: absolute; top: 31.5px; left: 30px;
+                            opacity: 0.0; width: 100%;
+                            text-align: left;
+                            font-family: Georgia, 'Times New Roman', Times, serif; font-size: 0.0px;
+                            a {
+                                text-decoration: none; text-transform: uppercase; font-weight: bold;
+                                color: colorPicker(fontColor);
+                            }
+                            &.animate {
+                                font-size: 18px; opacity: 1.0; @include animationSpeed(250ms);
+                                &:nth-of-type(1){
+                                    top: 300px; transition-delay: 0.0s;
+                                }
+                                &:nth-of-type(2){
+                                    top: 340px; transition-delay: 0.02s;
+                                }
+                                &:nth-of-type(3){
+                                    top: 380px; transition-delay: 0.09s;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .contentsText {
+                padding: 0px !important;
+                height: 87vh; width: auto; 
+                background-color: rgba(colorPicker(base), 0.0);
+                font-family: 'Source Sans Pro', sans-serif;
+
+                h1 {
+                    position: absolute; top: 92px; margin: auto 20px auto 20px;
+                    text-transform: uppercase;
+                    @include fluidType(375px, 1920px, 40px, 85px) ; font-weight: 900; color: colorPicker(base);
+                    @include desktop {
+                        top: 150px; left: 10px;
+                        color: colorPicker(fontColor);
+                    }
+                }
+                p {
+                    position: absolute; top: 230px; margin: auto 20px auto 20px;
+                    @include fluidType(375px, 1920px, 15px, 25px); font-weight: 400; color: colorPicker(base);
+                    @include desktop {
+                        top: 350px; left: 10px;
+                        color: colorPicker(fontColor);
+                    }
+                }
+                ul {
+                    list-style: none;
+                    position: absolute; top: 332px;  left: 20px;
+                    @include desktop {
+                        top: 500px; left: 30px;
+                    }
+                    li {
+                        display: inline-block;
+                        button {
+                            display: flex; justify-content: center;
+                            width: 18vw; height: 4.5vh; border-radius: 50px;
+                            background: colorPicker(buttonColor); @include buttonShadow();
+                            @include desktop {
+                                width: 10vw; height: 7vh;
+                            }
+                            a { 
+                                text-decoration: none;
+                                @include fluidType(375px, 1920px, 12px, 25px); font-weight: 700; color: colorPicker(base);
+                            }
+                            &:hover{
+                                box-shadow: 0 3px 5px rgba(0,0,0,0.25), 0 5px 5px rgba(0,0,0,0.22);
+                                @include animationSpeed(.1s);
+                            }
+                        }
+                        span {
+                            margin-left: 13px;
+                            @include fluidType(375px, 1920px, 12px, 25px); font-weight: 400; color: colorPicker(base);
+                            @include desktop {
+                                margin-left: 20px;
+                                color: colorPicker(fontColor);
+                            }
+                            a {
+                                margin-left: 13px; text-decoration: none;
+                                font-weight: 600; color: colorPicker(linkColor2);
+                                @include desktop {
+                                    margin-left: 20px;
+                                    color: colorPicker(linkColor);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .image {
+            z-index: 2;
+            display: none;
+            @include desktop {
+                display: initial;
+                width: 100%; height: 100vh;
+                background-color: rgba(colorPicker(fontColor), 1.0);
+                background-image: url("/img/home-image.svg");
+                @include backgroundCover(cover);
+            }
+        }
+    }
+
+    #myProjects {
+        background-color: colorPicker(baseColor);
+        
+        .title, .cards-1, .cards-2, .cards-3 {
+            z-index: 2;
+            display: flex; justify-content: center;
+        }
+        
+        .title {
+            height: 13vh;
+            background-color: rgba(colorPicker(buttonColor), 0.0);
+            h1{
+                display: block;
+                font-family: 'Source Sans Pro', sans-serif; 
+                @include fluidType(375px, 1920px, 30px, 50px); font-weight: 700;
+                text-transform: uppercase; color: colorPicker(fontColor);
+                margin-top: 30px;
+                @include desktop {
+                    margin-top: 20px;
+                }
+                &:after {
+                    content: '';
+                    position: relative; left: 0px; top: 6px;
+                    display: block; width: 100%; height: 3px;
+                    background:colorPicker(fontColor);
+                }
+            }
+        }
+        .cards-1 {
+            height: 80vh;
+            background-color: rgba(colorPicker(linkColor), 0.0);
+        }
+        .cards-2 {
+            height: 80vh;
+            background-color: rgba(colorPicker(fontColor), 0.0);
+        }
+        .cards-3 {
+            height: 80vh;
+            background-color: rgba(colorPicker(linkColor2), 0.0);
+        }
+        .card {
+            z-index: 3;
+            margin-top: 25px;
+            height: 441px; width: 271px; border: none;
+            @include buttonShadow();
+            img {
+                border-top-left-radius: 5px; border-top-right-radius: 5px;
+            }
+            .card-body {
+                font-family: 'Source Sans Pro', sans-serif;
+                .card-title {
+                    display: block; width: 246px;
+                    @include fluidType(375px, 1920px, 16px, 22px); 
+                    font-weight: 700; color: colorPicker(fontColor);
+                }
+                .card-text {
+                    display: block; height: 55%; width: 230px; margin-top: 18px;
+                    @include fluidType(375px, 1920px, 13px, 16px); font-weight: 400;
+                }
+                button {
+                    display: flex; justify-content: center;
+                    width: 103px; height: 40px; border-radius: 5px;
+                    background: colorPicker(buttonColor); @include buttonShadow();
+                    a {
+                        text-decoration: none;
+                        @include fluidType(375px, 1920px, 13px, 18px); 
+                        font-weight: 600; color: colorPicker(base);
+                    }
+                }
+            }
+            &:hover{
+                box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+                margin-top: 10px; @include animationSpeed(.3s);
+            }
+        }
+    }
+
+    footer{
+        z-index: 2;
+        height: 7vh;
+        background: rgba(colorPicker(baseColor), 1.0);
+        @include desktop {
+            background: rgba(colorPicker(fontColor), 1.0);
+        }
+
+        .footerIcons {
+            display: flex; justify-content: center;
+            @include desktop {
+                display: none;
+            }
+            a {
+                transform: translateX(-15px);
+                margin-top: 10px; margin-left: 15px;
+                text-decoration: none; font-size: 15px; color: colorPicker(fontColor);
+            }
+        }
+        .footerTexts {
+            display: none;
+            @include desktop {
+                display: initial;
+                ul {
+                    display: flex; justify-content: center; width: 100%; margin: 10px auto auto auto;
+                    list-style: none;
+                    li {
+                        display: inline-block;
+                        transform: translateX(-30px);
+                        margin-left: 30px;
+                        a {
+                            text-decoration: none;
+                            font-family: 'Source Sans Pro', sans-serif; font-size: 13px;
+                            color: colorPicker(base);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
