@@ -17,6 +17,7 @@ contents. The contact informaton can be found at web page.
 - now using boostrap 4 grid system
 - use scss stylesheet
 - add ripple effect using jQuery plugin by : https://github.com/matthias-vogt/legitRipple.js
+- add smooth scroll effect using js plugin by : https://github.com/cferdinandi/smooth-scroll
 
 # Special Thanks
 - freefrontend.com
