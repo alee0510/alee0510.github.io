@@ -176,14 +176,12 @@ body #intro .contents .navbar .menu .main li a {
   text-transform: uppercase;
   font-weight: bold;
   color: #321C88;
-  padding-right: 30px;
 }
 
 @media (min-width: 768px) {
   body #intro .contents .navbar .menu .main li a {
     text-transform: initial;
     margin-left: 10px;
-    padding-right: 0px;
   }
 }
 
