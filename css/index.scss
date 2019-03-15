@@ -171,6 +171,7 @@ body {
                                 color: colorPicker(fontColor); padding-right: 30px;
                                 @include desktop {
                                     text-transform: initial; margin-left: 10px;
+                                    padding-right: 0px;
                                 }
                             }
                             .fa {

@@ -183,6 +183,7 @@ body #intro .contents .navbar .menu .main li a {
   body #intro .contents .navbar .menu .main li a {
     text-transform: initial;
     margin-left: 10px;
+    padding-right: 0px;
   }
 }
 
