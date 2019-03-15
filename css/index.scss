@@ -80,7 +80,7 @@ body {
 
     #intro{
         .contents {
-            background-image: url("/img/mobile-image.svg");
+            background-image: url("https://alee0510.github.io/img/mobile-image.svg");
             @include backgroundCover(scroll);
             @include desktop {
                 background-image: unset;
@@ -318,7 +318,7 @@ body {
             display: none;
             @include desktop {
                 display: initial;
-                background-image: url("/img/home-image.svg");
+                background-image: url("https://alee0510.github.io/img/home-image.svg");
                 width: 100%; height: 100vh;
                 @include backgroundCover(cover);
                 background-color: rgba(colorPicker(fontColor), 1.0);

@@ -26,7 +26,7 @@ body .no-gutter > [class*='col-'] {
 }
 
 body #intro .contents {
-  background-image: url("/img/mobile-image.svg");
+  background-image: url("https://alee0510.github.io/img/mobile-image.svg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -518,7 +518,7 @@ body #intro .image {
 @media (min-width: 768px) {
   body #intro .image {
     display: initial;
-    background-image: url("/img/home-image.svg");
+    background-image: url("https://alee0510.github.io/img/home-image.svg");
     width: 100%;
     height: 100vh;
     background-position: center center;
