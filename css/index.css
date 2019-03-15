@@ -176,6 +176,7 @@ body #intro .contents .navbar .menu .main li a {
   text-transform: uppercase;
   font-weight: bold;
   color: #321C88;
+  padding-right: 30px;
 }
 
 @media (min-width: 768px) {
@@ -209,7 +210,6 @@ body #intro .contents .navbar .menu .main li.animate {
   opacity: 1.0;
   -webkit-transition: all 200ms cubic-bezier(0, 0.995, 0.99, 1);
   transition: all 200ms cubic-bezier(0, 0.995, 0.99, 1);
-  padding-right: 20px;
 }
 
 body #intro .contents .navbar .menu .main li.animate:nth-of-type(1) {
