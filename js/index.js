@@ -41,7 +41,7 @@ $( document ).ready(function() {
 	};
 
 	// hide navbar when scoll down function
-	$(function () {
+	/*$(function () {
 		var lastScrollTop = 0;
 		var $navbar = $('nav');
 	  
@@ -54,7 +54,7 @@ $( document ).ready(function() {
 			$navbar.hide();
 		  }
 		});
-	});
+	});*/
 
 	// ripple effects
 	$( 'button' ).ripple({
@@ -62,7 +62,7 @@ $( document ).ready(function() {
 	});
 
 	// smooth scoll effect
-	$( '.btn explore' ).on('click', function(e){
+	/*$( '.btn explore' ).on('click', function(e){
 		if (this.hash !== ''){
 			e.preventDefault();
 			var hash = this.hash;
@@ -73,5 +73,18 @@ $( document ).ready(function() {
 				window.location.hash = hash;
 			});
 		}
+	});*/
+	
+	// smooth scrool using plugin
+	var scroll = new SmoothScroll('a[href*="#"]', {
+		speed: 500,
+		speedAsDuration: true
 	});
+
+	// sub menu scaleOut
+	$( '#projects, .fa' ).on('click', function(){
+		$( '.sub' ).toggleClass('scaleOut');
+		$( '.fa' ).toggleClass('rotate180');
+	});
+
 });
